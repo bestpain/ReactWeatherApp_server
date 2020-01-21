@@ -5,6 +5,7 @@ const bodyParser=require('body-parser')
 const api_helper = require('./api')
 const API_KEY="beb4ede2007cd8285aba1d47a36b4045";
 const ROOT_URL=`http://api.weatherstack.com/current?access_key=${API_KEY}`;
+const port=process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -35,6 +36,6 @@ app.get('/cities/:ziplist',async (req,res)=>{
 	res.send(response);	
 });
 
-app.listen(5000,()=>{
-	console.log('server listening on port 5000')
+app.listen(port,()=>{
+	console.log('server listening on port',port)
 })
